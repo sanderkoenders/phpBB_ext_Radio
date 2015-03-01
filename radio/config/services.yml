@@ -1,0 +1,17 @@
+services:
+    archcry.radio.controller:
+        class: archcry\radio\controller\main
+        arguments:
+            - @config
+            - @controller.helper
+            - @template
+            - @user
+            - @cache
+    archcry.radio.listener:
+        class: archcry\radio\event\main_listener
+        arguments:
+            - @controller.helper
+            - @template
+            - %core.root_path%
+        tags:
+            - { name: event.listener }

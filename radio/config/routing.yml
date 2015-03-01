@@ -1,0 +1,3 @@
+archcry_radio_controller:
+    path: /api/radio
+    defaults: { _controller: archcry.radio.controller:get }

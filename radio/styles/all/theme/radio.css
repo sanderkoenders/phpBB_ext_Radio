@@ -1,0 +1,65 @@
+.sponsors {
+	margin-bottom: 18px;
+	width: 49%;
+	border: 0px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.radio_buttons {
+	text-align: center ;
+	margin-bottom: 5px;
+}
+
+.radio_button {
+	margin-left: 2px;
+	margin-right: 2px;
+	opacity: 0.8;	
+}
+
+.radio_button:hover {
+   opacity: 10;
+}
+
+.radio_information {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 15px;
+	clear: both;
+}
+
+.radio_clear {
+	clear: both;
+}
+
+.radio_icon {
+	margin-right: 10px;
+	width: 37px;
+	height: 37px;
+}
+
+.radio_item {
+	float:left;
+}
+
+#radio_station {
+	width: 30%;
+}
+
+#radio_song {
+	width: 30%;
+}
+
+#radio_genre {
+	width: 25%;
+}
+
+#radio_bitrate {
+	width: 15%;
+}
