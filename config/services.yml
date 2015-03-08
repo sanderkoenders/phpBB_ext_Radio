@@ -10,6 +10,7 @@ services:
     archcry.radio.listener:
         class: archcry\radio\event\main_listener
         arguments:
+            - @config
             - @controller.helper
             - @template
             - %core.root_path%

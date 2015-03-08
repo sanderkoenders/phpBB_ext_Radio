@@ -27,13 +27,6 @@ class main
 	/* @var \phpbb\cache\driver */
 	protected $cache;
 
-	private $scuseragent;
-	private $schost;
-	private $scport;
-	private $scuser;
-	private $scpass;
-	private $scsid;
-
 	/**
 	* Constructor
 	*
@@ -49,14 +42,6 @@ class main
 		$this->template = $template;
 		$this->user = $user;
 		$this->cache = $cache;
-		
-		// Radio Configuration
-		$this->scuseragent	= ''; 
-		$this->schost		= ''; 
-		$this->scport		= ''; 
-		$this->scuser		= ''; 
-		$this->scpass		= ''; 
-		$this->scsid		= ''; 
 	}
 
 	/**
@@ -81,22 +66,25 @@ class main
 		
 		// Set content for the response
 		$response->setContent(json_encode($radio));
-		
+
 		// Send the response
 		return $response;
 	}
 	
 	private function getRadioInformation() {
 		//init curl connection 
-		$ch = curl_init($this->schost . '/admin.cgi?mode=viewxml&sid=' . $this->scsid); 
+		$ch = curl_init($this->config['archcry_radio_host'] . '/admin.cgi?mode=viewxml&sid=1'); 
+		
+		echo $this->config['archcry_radio_host'];
 		
 		// set curl connection parameter 
-		curl_setopt($ch, CURLOPT_PORT, $this->scport);
-		curl_setopt($ch, CURLOPT_USERAGENT, $this->scuseragent);
+		curl_setopt($ch, CURLOPT_PORT, $this->config['archcry_radio_port']);
+		curl_setopt($ch, CURLOPT_USERAGENT, $this->config['archcry_radio_useragent']);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-		curl_setopt($ch, CURLOPT_USERPWD, $this->scuser . ':' . $this->scpass); 
+		curl_setopt($ch, CURLOPT_USERPWD, $this->config['archcry_radio_user'] . ':' . $this->config['archcry_radio_passwd']);
+		curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE);
 		
 		// connect to shoutcastserver 
 		$curl = curl_exec($ch); 
@@ -107,48 +95,34 @@ class main
 	   		$xml = @simplexml_load_string($curl); 
 
 	    	$dnas_data = array ( 
-		        'currentListeners'	=> (string) $xml->CURRENTLISTENERS, 
-		        'peakListeners'		=> (string) $xml->PEAKLISTENERS, 
-		        'maxListeners'		=> (string) $xml->MAXLISTENERS, 
-		        'reportedListeners'	=> (string) $xml->REPORTEDLISTENERS, 
-		        'avarageTime'		=> (string) $xml->AVERAGETIME, 
-		        'serverGenre'		=> (string) $xml->SERVERGENRE, 
-		        'serverUrl'			=> (string) $xml->SERVERURL, 
-		        'serverTitle'		=> (string) $xml->SERVERTITLE, 
-		        'songTitle'			=> (string) $xml->SONGTITLE, 
-		        'nextTitle'			=> (string) $xml->NEXTTITLE, 
-		        'songUrl'			=> (string) $xml->SONGURL, 
-		        'irc'				=> (string) $xml->IRC, 
-		        'icq'				=> (string) $xml->ICQ, 
-		        'aim'				=> (string) $xml->AIM, 
-		        'streamHits'        => (string) $xml->STREAMHITS, 
-		        'streamStatus'		=> (string) $xml->STREAMSTATUS, 
-		        'bitrate'			=> (string) $xml->BITRATE, 
-		        'content'			=> (string) $xml->CONTENT, 
-		        'version'			=> (string) $xml->VERSION, 
+		        'currentListeners'	=> (string) (!empty($xml->CURRENTLISTENERS) ? $xml->CURRENTLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')), 		        
+		        'peakListeners'		=> (string) (!empty($xml->PEAKLISTENERS) ? $xml->PEAKLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')),
+		        'maxListeners'		=> (string) (!empty($xml->MAXLISTENERS) ? $xml->MAXLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'reportedListeners'	=> (string) (!empty($xml->REPORTEDLISTENERS) ? $xml->REPORTEDLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'avarageTime'		=> (string) (!empty($xml->AVERAGETIME) ? $xml->AVERAGETIME : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'serverGenre'		=> (string) (!empty($xml->SERVERGENRE) ? $xml->SERVERGENRE : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'serverUrl'			=> (string) (!empty($xml->SERVERURL) ? $xml->SERVERURL : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'serverTitle'		=> (string) (!empty($xml->SERVERTITLE) ? $xml->SERVERTITLE : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'songTitle'			=> (string) (!empty($xml->SONGTITLE) ? $xml->SONGTITLE : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'nextTitle'			=> (string) (!empty($xml->NEXTTITLE) ? $xml->NEXTTITLE : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'songUrl'			=> (string) (!empty($xml->SONGURL) ? $xml->SONGURL : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'irc'				=> (string) (!empty($xml->IRC) ? $xml->IRC : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'icq'				=> (string) (!empty($xml->ICQ) ? $xml->ICQ : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'aim'				=> (string) (!empty($xml->AIM) ? $xml->AIM : $this->user->lang('RADIO_NOT_AVAILABLE')),
+		        'streamStatus'		=> (string) (!empty($xml->STREAMSTATUS) ? $xml->STREAMSTATUS : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'bitrate'			=> (string) (!empty($xml->BITRATE) ? $xml->BITRATE : $this->user->lang('RADIO_NOT_AVAILABLE')), 
+		        'content'			=> (string) (!empty($xml->CONTENT) ? $xml->CONTENT : $this->user->lang('RADIO_NOT_AVAILABLE'))
 		    ); 
 		
 		    // Get Listeners and Songhistory 
 		    if ($xml->STREAMSTATUS == 1) 
 		    {
-		        // store listener in array 
-		        foreach ($xml->LISTENERS->LISTENER as $listener) 
-		        { 
-		            $dnas_data['listeners'][] = array( 
-		                'ip' 			=> (string) $listener->HOSTNAME, 
-		                'useragent' 	=> (string) $listener->USERAGENT, 
-		                'connectTime' 	=> (string) $listener->CONNECTTIME, 
-		                'pointer' 		=> (string) $listener->POINTER, 
-		                'uid' 			=> (string) $listener->UID, 
-		            ); 
-		        } 
-		
 		        // store songhistory in array 
 		        foreach ($xml->SONGHISTORY->SONG as $song) 
 		        { 
 		            $dnas_data['songHistory'][] = array( 
-		                'playeDat' 	=> (string) $song->PLAYEDAT, 
-		                'title' 	=> (string) $song->TITLE, 
+		                'playeDat' 	=> (string) (!empty($song->PLAYEDAT) ? $song->PLAYEDAT : $this->user->lang('RADIO_NOT_AVAILABLE')),
+		                'title' 	=> (string) (!empty($song->TITLE) ? $song->TITLE : $this->user->lang('RADIO_NOT_AVAILABLE')),
 		            ); 
 		        } 
 		    }
@@ -158,6 +132,6 @@ class main
 		    $dnas_data = array('error' => 'connection error'); 
 		} 
 		
-		return $dnas_data;		
+		return $dnas_data;
 	}
 }

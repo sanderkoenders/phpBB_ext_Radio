@@ -18,8 +18,30 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'STATION'	=> 'Current DJ',
-	'SONG'		=> 'Current Song',
-	'GENRE'		=> 'Genre',
-	'BITRATE'	=> 'Bitrate'
+	// Main page
+	'STATION'					=> 'Current DJ',
+	'SONG'						=> 'Current Song',
+	'GENRE'						=> 'Genre',
+	'BITRATE'					=> 'Bitrate',
+	
+	// Json
+	'RADIO_NOT_AVAILABLE' 		=> 'Not Available',
+	
+	// ACP languages variables
+	'ACP_RADIO_GENERAL'			=> 'General Settings',
+	'ACP_RADIO_TITLE'			=> 'Radio Module',
+	'ACP_RADIO'					=> 'Settings',
+	'ACP_RADIO_HOST'			=> 'SHOUTcast Host',
+	'ACP_RADIO_USERAGENT'		=> 'Useragent',
+	'ACP_RADIO_PORT'			=> 'Port',
+	'ACP_RADIO_USER'			=> 'Username',
+	'ACP_RADIO_PASSWD'			=> 'Password',
+	'ACP_RADIO_SETTING_SAVED'	=> 'SHOUTcast Settings Saved',
+	
+	// Links to files for music players
+	'ACP_RADIO_MUSIC_PLAYERS'	=> 'Links For Music Players',
+	'ACP_RADIO_WINAMP_URL'		=> 'Link To Winamp',
+	'ACP_RADIO_WMP_URL'			=> 'Link To Windows Media Player',
+	'ACP_RADIO_REAL_URL'		=> 'Link To RealPlayer',
+	'ACP_RADIO_ITUNES_URL'		=> 'Link To Itunes'
 ));

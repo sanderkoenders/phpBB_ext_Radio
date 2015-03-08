@@ -1,0 +1,55 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+	<fieldset>
+		<h2>{L_ACP_RADIO_GENERAL}</h2><br />
+		<dl>
+			<dt><label for="archcry_radio_host">{L_ACP_RADIO_HOST}</label></dt>
+			<dd><input id="archcry_radio_host" type="text" name="archcry_radio_host" value="{ARCHCRY_RADIO_HOST}" placeholder="shoutcast.server.com" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_useragent">{L_ACP_RADIO_USERAGENT}</label></dt>
+			<dd><input id="archcry_radio_useragent" type="text" name="archcry_radio_useragent" value="{ARCHCRY_RADIO_USERAGENT}" placeholder="Mozilla (DNAS 2 Statuscheck)" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_port">{L_ACP_RADIO_PORT}</label></dt>
+			<dd><input id="archcry_radio_port" type="text" name="archcry_radio_port" value="{ARCHCRY_RADIO_PORT}" placeholder="80" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_user">{L_ACP_RADIO_USER}</label></dt>
+			<dd><input id="archcry_radio_user" type="text" name="archcry_radio_user" value="{ARCHCRY_RADIO_USER}" placeholder="Username" /></dd>
+		</dl>		
+		<dl>
+			<dt><label for="archcry_radio_passwd">{L_ACP_RADIO_PASSWD}</label></dt>
+			<dd><input id="archcry_radio_passwd" type="text" name="archcry_radio_passwd" value="{ARCHCRY_RADIO_PASSWD}" placeholder="Password" /></dd>
+		</dl>
+		<br />
+		<h2>{L_ACP_RADIO_MUSIC_PLAYERS}</h2><br />
+		<dl>
+			<dt><label for="archcry_radio_winamp_url">{L_ACP_RADIO_WINAMP_URL}</label></dt>
+			<dd><input id="archcry_radio_winamp_url" type="text" name="archcry_radio_winamp_url" value="{ARCHCRY_RADIO_WINAMP_URL}" placeholder="shoutcast.server.com/listen.pls" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_wmp_url">{L_ACP_RADIO_WMP_URL}</label></dt>
+			<dd><input id="archcry_radio_wmp_url" type="text" name="archcry_radio_wmp_url" value="{ARCHCRY_RADIO_WMP_URL}" placeholder="shoutcast.server.com/playlist/LiveStream.html" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_real_url">{L_ACP_RADIO_REAL_URL}</label></dt>
+			<dd><input id="archcry_radio_real_url" type="text" name="archcry_radio_real_url" value="{ARCHCRY_RADIO_REAL_URL}" placeholder="shoutcast.server.com/playlist/RealMediaPlayer.ram" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="archcry_radio_itunes_url">{L_ACP_RADIO_ITUNES_URL}</label></dt>
+			<dd><input id="archcry_radio_itunes_url" type="text" name="archcry_radio_itunes_url" value="{ARCHCRY_RADIO_ITUNES_URL}" placeholder="shoutcast.server.com/playlist/iTunes.pls" /></dd>
+		</dl>
+		
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->

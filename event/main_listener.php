@@ -35,6 +35,9 @@ class main_listener implements EventSubscriberInterface
 	
 	/* phpBB rootpath */
 	protected $root_path;
+	
+	/* phpBB config */
+	protected $config;
 
 	/**
 	* Constructor
@@ -42,11 +45,12 @@ class main_listener implements EventSubscriberInterface
 	* @param \phpbb\controller\helper	$helper		Controller helper object
 	* @param \phpbb\template			$template	Template object
 	*/
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\template\template $template, $root_path)
+	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\template\template $template, $root_path)
 	{
 		$this->helper = $helper;
 		$this->template = $template;
 		$this->root_path = $root_path;
+		$this->config = $config;
 	}
 
 	public function load_language_on_setup($event)
@@ -62,7 +66,11 @@ class main_listener implements EventSubscriberInterface
 	public function add_page_header_link($event)
 	{
 		$this->template->assign_vars(array(
-			'EXT_GLOBAL_THEME_PATH' => $root_path . '/ext/archcry/radio/styles/all/theme'
+			'EXT_GLOBAL_THEME_PATH' 	=> $root_path . '/ext/archcry/radio/styles/all/theme',
+			'ARCHCRY_RADIO_WINAMP_URL'	=> $this->config['archcry_radio_winamp_url'],
+			'ARCHCRY_RADIO_WMP_URL'		=> $this->config['archcry_radio_wmp_url'],
+			'ARCHCRY_RADIO_REAL_URL'	=> $this->config['archcry_radio_real_url'],
+			'ARCHCRY_RADIO_ITUNES_URL'	=> $this->config['archcry_radio_itunes_url']
 		));
 	}
 }
