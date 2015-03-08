@@ -13,11 +13,15 @@ A simple radio extension for phpBB (under development)
 - Refreshes its information every 10 seconds (jQuery).
 
 ## Screenshots
-### Radio Template
+#### Radio Template
 ![Radio](http://i.imgur.com/6aOFHBi.png)
 
-### Admin Panel
+#### Admin Panel
 ![Admin Panel](http://i.imgur.com/nKaPn9l.png)
+
+## Languages
+- English
+- Dutch
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
