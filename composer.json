@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "A Radio extension for phpBB",
 	"homepage": "",
-	"version": "0.0.1",
-	"time": "2015-02-27",
+	"version": "0.2.1",
+	"time": "2015-03-08",
 	"license": "GPL-2.0",
 	"authors": [{
 			"name": "Sander Koenders",
