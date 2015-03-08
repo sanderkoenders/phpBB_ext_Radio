@@ -1,7 +1,7 @@
 function getStreamInformation() {
     'use strict';
 
-    $.get("/api/radio", function(data) {
+    $.get("app.php/api/radio", function(data) {
         $('#js_radio_station').html(data.serverTitle);
         $('#js_radio_song').html(data.songTitle);
         $('#js_radio_genre').html(data.serverGenre);
