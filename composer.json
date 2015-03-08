@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "A Radio extension for phpBB",
 	"homepage": "",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"time": "2015-03-08",
 	"license": "GPL-2.0",
 	"authors": [{
