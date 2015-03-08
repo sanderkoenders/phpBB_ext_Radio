@@ -1,12 +1,6 @@
-$( document ).ready(function() {
-    // Get the initial information
-    getStreamInformation();
-    
-    // Set a interval to get information every 10 sec
-    setInterval(getStreamInformation, 10000);
-});
-
 function getStreamInformation() {
+    'use strict';
+
     $.get("/api/radio", function(data) {
         $('#js_radio_station').html(data.serverTitle);
         $('#js_radio_song').html(data.songTitle);
@@ -14,3 +8,13 @@ function getStreamInformation() {
         $('#js_radio_bitrate').html(data.bitrate);
     });
 }
+
+$( document ).ready(function() {
+    'use strict';
+
+    // Get the initial information
+    getStreamInformation();
+    
+    // Set a interval to get information every 10 sec
+    setInterval(getStreamInformation, 10000);
+});
