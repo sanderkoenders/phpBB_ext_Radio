@@ -21,7 +21,7 @@ A simple radio extension for phpBB (under development)
 
 ## Languages
 - English
-- Dutch
+- Dutch (Casual Honorifics)
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
