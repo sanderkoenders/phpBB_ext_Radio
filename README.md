@@ -2,6 +2,16 @@
 
 A simple radio extension for phpBB (under development)
 
+## Features
+- Shows current DJ (serverTitle).
+- Shows current song.
+- Shows current genre.
+- Shows current bitrate.
+- Shows links for various Music Players.
+- Has a Admin Module to take care of settings.
+- Uses caching to limit the load on the external server (gets its data every 30 seconds)
+- Refreshes its information every 10 seconds (jQuery).
+
 ## Screenshots
 ### Radio Template
 ![Radio](http://i.imgur.com/6aOFHBi.png)
