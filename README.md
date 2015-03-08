@@ -3,15 +3,20 @@
 A simple radio extension for phpBB (under development)
 
 ## Screenshots
+### Radio Template
 ![Radio](http://i.imgur.com/6aOFHBi.png)
+
+### Admin Panel
 ![Admin Panel](http://i.imgur.com/nKaPn9l.png)
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
 2. Put them in the folder "/ext/archcry/radio" on your forum.
 3. Go to your admin panel and install the extension.
-4. Go to extensions -> radio -> settings and set required parameters to work with.
-5. Enjoy your new modification.
+4. Go to extensions -> RADIO MODULE -> Settings.
+5. Set the General Settings (required) 
+6. Set the Links For Music Players (Optional)
+7. Enjoy your new modification.
 
 ## Support
 Please help me improve this modification by posting issues in this GitHub repo under issues.
