@@ -22,7 +22,8 @@ A simple radio extension for phpBB (under development)
 ## Languages
 - English
 - Dutch (Casual Honorifics)
-- Spanish (thanks Raul [ThE KuKa])
+- Spanish (Thanks Raul [ThE KuKa])
+- Polish (Thanks to Hapek)
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
