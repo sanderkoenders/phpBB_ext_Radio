@@ -25,6 +25,7 @@ A simple radio extension for phpBB (under development)
 - Spanish (thanks Raul [ThE KuKa])
 - German (Thanks to Tamarin)
 - Russian (Thanks to Tamarin)
+- Polish (Thanks to Hapek)
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
