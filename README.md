@@ -23,6 +23,8 @@ A simple radio extension for phpBB (under development)
 - English
 - Dutch (Casual Honorifics)
 - Spanish (thanks Raul [ThE KuKa])
+- German (Thanks to Tamarin)
+- Russian (Thanks to Tamarin)
 
 ## Installation Instructions
 1. Download the files from this GitHub Repository.
