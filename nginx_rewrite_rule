@@ -1,0 +1,3 @@
+location /app.php/api/radio {
+    try_files $uri $uri /app.php?q=$uri&args;
+}

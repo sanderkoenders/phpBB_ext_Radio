@@ -4,7 +4,6 @@ services:
         arguments:
             - @config
             - @controller.helper
-            - @template
             - @user
             - @cache
     archcry.radio.listener:

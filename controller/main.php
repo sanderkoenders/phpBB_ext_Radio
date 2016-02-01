@@ -18,9 +18,6 @@ class main
 	/* @var \phpbb\controller\helper */
 	protected $helper;
 
-	/* @var \phpbb\template\template */
-	protected $template;
-
 	/* @var \phpbb\user */
 	protected $user;
 	
@@ -32,24 +29,19 @@ class main
 	*
 	* @param \phpbb\config\config		$config
 	* @param \phpbb\controller\helper	$helper
-	* @param \phpbb\template\template	$template
 	* @param \phpbb\user				$user
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\user $user, \phpbb\cache\service $cache)
+	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\user $user, \phpbb\cache\service $cache)
 	{
 		$this->config = $config;
 		$this->helper = $helper;
-		$this->template = $template;
 		$this->user = $user;
 		$this->cache = $cache;
 	}
 
 	/**
-	* Demo controller for route /demo/{name}
-	*
-	* @param string		$name
-	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
-	*/
+	 * @return Response
+     */
 	public function get()
 	{
 		$response = new Response();
@@ -74,9 +66,7 @@ class main
 	private function getRadioInformation() {
 		//init curl connection 
 		$ch = curl_init($this->config['archcry_radio_host'] . '/admin.cgi?mode=viewxml&sid=1'); 
-		
-		echo $this->config['archcry_radio_host'];
-		
+
 		// set curl connection parameter 
 		curl_setopt($ch, CURLOPT_PORT, $this->config['archcry_radio_port']);
 		curl_setopt($ch, CURLOPT_USERAGENT, $this->config['archcry_radio_useragent']);
