@@ -36,6 +36,9 @@ A simple radio extension for phpBB (under development)
 6. Set the Links For Music Players (Optional)
 7. Enjoy your new modification.
 
+## Nginx configuration
+To get this plugin working on a nginx based webserver please append the rewrite rule in the nginx_rewrite_rule file to your configuration.
+
 ## Support
 Please help me improve this modification by posting issues in this GitHub repo under issues.
 This modification currently supports prosilver based themes only.
