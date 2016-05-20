@@ -2,64 +2,47 @@
 
 namespace archcry\radio\library;
 
-class ShoutcastAdapter
+class ShoutcastAdapter extends Radio
 {
-    public function __construct($cache, $config, $user)
-    {
-        $this->cache = $cache;
-        $this->config = $config;
-        $this->user = $user;
-    }
-
     /**
+     * Main function to call in order to receive all information for a broadcasting radio
+     *
      * @return array|mixed
      */
-    public function checkCache()
+    public function getInformation()
     {
-        if (($radio = $this->cache->get('_radio')) === false) {
-            // Get radio information
-            $radio = $this::getRadioInformation();
+        $radioInfo = $this->getInfoFromCache();
+
+        if ($radioInfo === false) {
+            $curl = curl_exec($this->initCurl($this->config));
+
+            if ($curl)
+            {
+                $xml = @simplexml_load_string($curl);
+
+                $radioInfo = $this->formatData($xml);
+            }
+            else
+            {
+                $radioInfo = array('error' => $this->user->lang('RADIO_NOT_AVAILABLE'));
+            }
 
             // Save this to the cache to improve performance
-            $this->cache->put('_radio', $radio, 30);
-            return $radio;
+            $this->saveInfoToCache($radioInfo);
         }
 
-        return $radio;
+        return $radioInfo;
     }
 
     /**
-     * @return array|mixed
-     */
-    private function getRadioInformation() {
-        $ch = $this->initCurl($this->config);
-
-        // connect to shoutcast server
-        $curl = curl_exec($ch);
-
-        // now get the xml data
-        if ($curl)
-        {
-            $xml = @simplexml_load_string($curl);
-
-            $dnas_data = $this->extractRadioData($xml);
-            $dnas_data = $this->extractListenersAndSongs($xml, $dnas_data);
-        }
-        else
-        {
-            $dnas_data = array('error' => 'connection error');
-        }
-
-        return $dnas_data;
-    }
-
-    /**
+     * Function to initialize a curl connection to the broadcast server
+     *
      * @param $config
      * @return resource
      */
-    private function initCurl($config)
+    protected function initCurl($config)
     {
-        //init curl connection
+        // initialize curl connection
         $ch = curl_init($config['archcry_radio_host'] . '/admin.cgi?mode=viewxml&sid=1');
 
         // set curl connection parameter
@@ -69,18 +52,20 @@ class ShoutcastAdapter
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         curl_setopt($ch, CURLOPT_USERPWD, $config['archcry_radio_user'] . ':' . $config['archcry_radio_passwd']);
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE);
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
 
         return $ch;
     }
 
     /**
+     * Function to format information received from the broadcast server
+     *
      * @param $xml
      * @return array
      */
-    private function extractRadioData($xml)
+    protected function formatData($xml)
     {
-        $dnas_data = array(
+        $data = array(
             'currentListeners' => (string)(!empty($xml->CURRENTLISTENERS) ? $xml->CURRENTLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'peakListeners' => (string)(!empty($xml->PEAKLISTENERS) ? $xml->PEAKLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'maxListeners' => (string)(!empty($xml->MAXLISTENERS) ? $xml->MAXLISTENERS : $this->user->lang('RADIO_NOT_AVAILABLE')),
@@ -100,26 +85,16 @@ class ShoutcastAdapter
             'content' => (string)(!empty($xml->CONTENT) ? $xml->CONTENT : $this->user->lang('RADIO_NOT_AVAILABLE'))
         );
 
-        return $dnas_data;
-    }
-
-    /**
-     * @param $xml
-     * @param $dnas_data
-     * @return mixed
-     */
-    private function extractListenersAndSongs($xml, $dnas_data)
-    {
         if ($xml->STREAMSTATUS == 1) {
             // store song history in array
             foreach ($xml->SONGHISTORY->SONG as $song) {
-                $dnas_data['songHistory'][] = array(
+                $data['songHistory'][] = array(
                     'playeDat' => (string)(!empty($song->PLAYEDAT) ? $song->PLAYEDAT : $this->user->lang('RADIO_NOT_AVAILABLE')),
                     'title' => (string)(!empty($song->TITLE) ? $song->TITLE : $this->user->lang('RADIO_NOT_AVAILABLE')),
                 );
             }
         }
-
-        return $dnas_data;
+    
+        return $data;
     }
 }

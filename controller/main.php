@@ -41,7 +41,6 @@ class main
 	{
 		$this->config = $config;
 		$this->user = $user;
-		$this->helper = $helper;
 		$this->cache = $cache;
 	}
 
@@ -55,7 +54,7 @@ class main
 		$radio = RadioFactory::initRadio(RadioFactory::SHOUTCAST, $this->cache, $this->config, $this->user);
 
 		// Check if the radio information is available in our cache
-		$information = $radio->checkCache();
+		$information = $radio->getInformation();
 
 		// Set content for the response
 		$response->setContent(json_encode($information));
