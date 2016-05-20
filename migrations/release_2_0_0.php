@@ -17,7 +17,8 @@ class release_2_0_0 extends \phpbb\db\migration\migration
     public function update_data()
     {
         return array(
-            array('config.remove', array('archcry_radio_useragent', ''))
+            array('config.remove', array('archcry_radio_useragent', '')),
+            array('config.add', array('archcry_radio_type', ''))
         );
     }
 }
