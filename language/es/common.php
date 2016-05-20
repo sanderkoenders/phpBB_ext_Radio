@@ -32,7 +32,6 @@ $lang = array_merge($lang, array(
 	'ACP_RADIO_TITLE'			=> 'Módulo de Radio',
 	'ACP_RADIO'					=> 'Ajustes',
 	'ACP_RADIO_HOST'			=> 'Host de SHOUTcast',
-	'ACP_RADIO_USERAGENT'		=> 'Agente usuario',
 	'ACP_RADIO_PORT'			=> 'Puerto',
 	'ACP_RADIO_USER'			=> 'Usuario',
 	'ACP_RADIO_PASSWD'			=> 'Contraseña',

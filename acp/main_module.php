@@ -31,10 +31,10 @@ class main_module
 			}
 
 			$config->set('archcry_radio_host', $request->variable('archcry_radio_host', ''));
-			$config->set('archcry_radio_useragent', $request->variable('archcry_radio_useragent', ''));
 			$config->set('archcry_radio_port', $request->variable('archcry_radio_port', ''));
 			$config->set('archcry_radio_user', $request->variable('archcry_radio_user', ''));
 			$config->set('archcry_radio_passwd', $request->variable('archcry_radio_passwd', ''));
+			$config->set('archcry_radio_type', $request->variable('archcry_radio_type', ''));
 			
 			$config->set('archcry_radio_winamp_url', $request->variable('archcry_radio_winamp_url', ''));
 			$config->set('archcry_radio_wmp_url', $request->variable('archcry_radio_wmp_url', ''));
@@ -46,8 +46,10 @@ class main_module
 
 		$template->assign_vars(array(
 			'U_ACTION'					=> $this->u_action,
+
+			'ARCHCRY_RADIO_TYPE'		=> $config['archcry_radio_type'],
+
 			'ARCHCRY_RADIO_HOST'		=> $config['archcry_radio_host'],
-			'ARCHCRY_RADIO_USERAGENT'	=> $config['archcry_radio_useragent'],
 			'ARCHCRY_RADIO_PORT'		=> $config['archcry_radio_port'],
 			'ARCHCRY_RADIO_USER'		=> $config['archcry_radio_user'],
 			'ARCHCRY_RADIO_PASSWD'		=> $config['archcry_radio_passwd'],

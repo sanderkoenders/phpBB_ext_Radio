@@ -1,11 +1,4 @@
 <?php
-/**
-*
-* @package phpBB Extension - Archcry Radio
-* @copyright (c) 2013 phpBB Group
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-*/
 
 if (!defined('IN_PHPBB'))
 {
@@ -31,8 +24,7 @@ $lang = array_merge($lang, array(
 	'ACP_RADIO_GENERAL'			=> 'Algemene Instellingen',
 	'ACP_RADIO_TITLE'			=> 'Radio Module',
 	'ACP_RADIO'					=> 'Instellingen',
-	'ACP_RADIO_HOST'			=> 'SHOUTcast Host',
-	'ACP_RADIO_USERAGENT'		=> 'Useragent',
+	'ACP_RADIO_HOST'			=> 'Radio Host',
 	'ACP_RADIO_PORT'			=> 'Poort',
 	'ACP_RADIO_USER'			=> 'Gebruikersnaam',
 	'ACP_RADIO_PASSWD'			=> 'Wachtwoord',
