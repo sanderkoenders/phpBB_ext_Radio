@@ -10,6 +10,10 @@
 namespace archcry\radio\controller;
 use archcry\radio\library\RadioFactory;
 use Symfony\Component\HttpFoundation\Response;
+use phpbb\cache\service;
+use phpbb\user;
+use phpbb\controller\helper;
+use phpbb\config\config;
 
 class main
 {
@@ -26,13 +30,14 @@ class main
 	protected $cache;
 
 	/**
-	* Constructor
-	*
-	* @param \phpbb\config\config		$config
-	* @param \phpbb\controller\helper	$helper
-	* @param \phpbb\user				$user
-	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\user $user, \phpbb\cache\service $cache)
+	 * Constructor
+	 *
+	 * @param \phpbb\config\config $config
+	 * @param \phpbb\controller\helper $helper
+	 * @param \phpbb\user $user
+	 * @param \phpbb\cache\service $cache
+	 */
+	public function __construct(config $config, helper $helper, user $user, service $cache)
 	{
 		$this->config = $config;
 		$this->user = $user;
@@ -45,8 +50,7 @@ class main
      */
 	public function get()
 	{
-		$response = new Response();
-		$response->headers->set('Content-Type', 'application/json');
+		$response = $this->initializeResponse();
 
 		$radio = RadioFactory::initRadio(RadioFactory::SHOUTCAST, $this->cache, $this->config, $this->user);
 
@@ -57,6 +61,17 @@ class main
 		$response->setContent(json_encode($information));
 
 		// Send the response
+		return $response;
+	}
+
+	/**
+	 * @return Response
+	 */
+	private function initializeResponse()
+	{
+		$response = new Response();
+		$response->headers->set('Content-Type', 'application/json');
+
 		return $response;
 	}
 }
