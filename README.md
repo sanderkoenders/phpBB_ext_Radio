@@ -37,7 +37,7 @@ A simple radio extension for phpBB (under development)
 7. Enjoy your new modification.
 
 ## Nginx configuration
-To get this plugin working on a nginx based webserver please refer to the example [nginx configuration file](https://github.com/phpbb/phpbb/blob/3.1.x/phpBB/docs/nginx.sample.conf)
+To get this plugin working on a nginx based webserver please refer to the example [nginx configuration file](https://github.com/phpbb/phpbb/blob/3.1.x/phpBB/docs/nginx.sample.conf).
 
 ## Support
 Please help me improve this modification by posting issues in this GitHub repo under issues.
