@@ -3,9 +3,8 @@ services:
         class: archcry\radio\controller\main
         arguments:
             - @config
-            - @controller.helper
-            - @user
             - @cache
+            - @user
     archcry.radio.listener:
         class: archcry\radio\event\main_listener
         arguments:

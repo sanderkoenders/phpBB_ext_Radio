@@ -4,6 +4,8 @@ namespace archcry\radio\library;
 
 class ShoutcastAdapter extends Radio
 {
+    const USER_AGENT = 'Mozilla (DNAS 2 Statuscheck)';
+
     /**
      * Main function to call in order to receive all information for a broadcasting radio
      *
@@ -47,7 +49,7 @@ class ShoutcastAdapter extends Radio
 
         // set curl connection parameter
         curl_setopt($ch, CURLOPT_PORT, $config['archcry_radio_port']);
-        curl_setopt($ch, CURLOPT_USERAGENT, $config['archcry_radio_useragent']);
+        curl_setopt($ch, CURLOPT_USERAGENT, self::USER_AGENT);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);

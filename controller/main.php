@@ -12,7 +12,6 @@ use archcry\radio\library\RadioFactory;
 use Symfony\Component\HttpFoundation\Response;
 use phpbb\cache\service;
 use phpbb\user;
-use phpbb\controller\helper;
 use phpbb\config\config;
 
 class main
@@ -20,28 +19,24 @@ class main
 	/* @var \phpbb\config\config */
 	protected $config;
 
-	/* @var \phpbb\controller\helper */
-	protected $helper;
+	/* @var \phpbb\cache\service */
+	protected $cache;
 
 	/* @var \phpbb\user */
 	protected $user;
-	
-	/* @var \phpbb\cache\service */
-	protected $cache;
 
 	/**
 	 * Constructor
 	 *
 	 * @param \phpbb\config\config $config
-	 * @param \phpbb\controller\helper $helper
 	 * @param \phpbb\user $user
 	 * @param \phpbb\cache\service $cache
 	 */
-	public function __construct(config $config, helper $helper, user $user, service $cache)
+	public function __construct(config $config, service $cache, user $user)
 	{
 		$this->config = $config;
-		$this->user = $user;
 		$this->cache = $cache;
+		$this->user = $user;
 	}
 
 	/**
