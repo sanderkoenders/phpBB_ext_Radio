@@ -2,14 +2,14 @@
 	"name": "archcry/radio",
 	"type": "phpbb-extension",
 	"description": "A Radio extension for phpBB",
-	"homepage": "",
-	"version": "0.3.0",
-	"time": "2016-02-01",
+	"homepage": "https://www.phpbb.com/community/viewtopic.php?t=2300896",
+	"version": "1.0.0-RC1",
+	"time": "2016-05-20",
 	"license": "GPL-2.0",
 	"authors": [{
 			"name": "Sander Koenders",
-			"email": "contact@sanderkoenders.nl",
-			"homepage": "http://www.sanderkoenders.nl",
+			"email": "sanderkoenders@gmail.com",
+			"homepage": "https://www.sanderkoenders.nl",
 			"role": "Lead Developer"
 		}],
 	"require": {
