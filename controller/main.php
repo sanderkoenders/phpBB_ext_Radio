@@ -46,7 +46,7 @@ class main
 	{
 		$response = $this->initializeResponse();
 
-		$radio = RadioFactory::initRadio(RadioFactory::SHOUTCAST, $this->cache, $this->config, $this->user);
+		$radio = RadioFactory::initRadio($this->config['archcry_radio_type'], $this->cache, $this->config, $this->user);
 
 		// Check if the radio information is available in our cache
 		$information = $radio->getInformation();
