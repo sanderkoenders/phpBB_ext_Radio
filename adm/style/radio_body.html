@@ -6,6 +6,13 @@
 	<fieldset>
 		<h2>{L_ACP_RADIO_GENERAL}</h2><br />
 		<dl>
+			<dt><label>Type</label></dt>
+			<dd>
+				<input class="archcry_radio_type" type="radio" name="archcry_radio_type" value="shoutcast" checked> Shoutcast
+				<input class="archcry_radio_type" type="radio" name="archcry_radio_type" value="icecast"> Icecast
+			</dd>
+		</dl>
+		<dl>
 			<dt><label for="archcry_radio_host">{L_ACP_RADIO_HOST}</label></dt>
 			<dd><input id="archcry_radio_host" type="text" name="archcry_radio_host" value="{ARCHCRY_RADIO_HOST}" placeholder="shoutcast.server.com" /></dd>
 		</dl>
@@ -13,11 +20,11 @@
 			<dt><label for="archcry_radio_port">{L_ACP_RADIO_PORT}</label></dt>
 			<dd><input id="archcry_radio_port" type="text" name="archcry_radio_port" value="{ARCHCRY_RADIO_PORT}" placeholder="80" /></dd>
 		</dl>
-		<dl>
+		<dl id="archcry_radio_username_field">
 			<dt><label for="archcry_radio_user">{L_ACP_RADIO_USER}</label></dt>
 			<dd><input id="archcry_radio_user" type="text" name="archcry_radio_user" value="{ARCHCRY_RADIO_USER}" placeholder="Username" /></dd>
 		</dl>		
-		<dl>
+		<dl id="archcry_radio_password_field">
 			<dt><label for="archcry_radio_passwd">{L_ACP_RADIO_PASSWD}</label></dt>
 			<dd><input id="archcry_radio_passwd" type="text" name="archcry_radio_passwd" value="{ARCHCRY_RADIO_PASSWD}" placeholder="Password" /></dd>
 		</dl>
@@ -48,4 +55,20 @@
 		{S_FORM_TOKEN}
 	</fieldset>
 </form>
+<script>
+	var servers = document.getElementsByClassName('archcry_radio_type');
+
+	for(var i=0; i<servers.length; i++) {
+		servers[i].addEventListener('click', function() {
+			if(this.getAttribute('value') === 'shoutcast') {
+				document.getElementById('archcry_radio_username_field').style.display = 'block';
+				document.getElementById('archcry_radio_password_field').style.display = 'block';
+			}
+			else {
+				document.getElementById('archcry_radio_username_field').style.display = 'none';
+				document.getElementById('archcry_radio_password_field').style.display = 'none';
+			}
+		});
+	}
+</script>
 <!-- INCLUDE overall_footer.html -->
