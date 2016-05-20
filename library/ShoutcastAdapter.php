@@ -2,7 +2,7 @@
 
 namespace archcry\radio\library;
 
-class Shoutcast
+class ShoutcastAdapter
 {
     public function __construct($cache, $config, $user)
     {

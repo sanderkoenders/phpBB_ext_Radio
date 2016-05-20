@@ -9,7 +9,7 @@ class RadioFactory
     static public function initRadio($radioType, $cache, $config, $user) {
         switch($radioType) {
             case self::SHOUTCAST:
-                return new Shoutcast($cache, $config, $user);
+                return new ShoutcastAdapter($cache, $config, $user);
             break;
         }
     }
