@@ -28,14 +28,15 @@ $lang = array_merge($lang, array(
 	'RADIO_NOT_AVAILABLE' 		=> 'No disponible',
 	
 	// ACP languages variables
+	'ACP_RADIO_TYPE'			=> 'Radio type [waiting for translation]',
 	'ACP_RADIO_GENERAL'			=> 'Ajustes generales',
 	'ACP_RADIO_TITLE'			=> 'Módulo de Radio',
 	'ACP_RADIO'					=> 'Ajustes',
-	'ACP_RADIO_HOST'			=> 'Host de SHOUTcast',
+	'ACP_RADIO_HOST'			=> 'Radio host [waiting for translation]',
 	'ACP_RADIO_PORT'			=> 'Puerto',
 	'ACP_RADIO_USER'			=> 'Usuario',
 	'ACP_RADIO_PASSWD'			=> 'Contraseña',
-	'ACP_RADIO_SETTING_SAVED'	=> 'Ajustes de SHOUTcast guardados',
+	'ACP_RADIO_SETTING_SAVED'	=> 'Radio Settings Saved [waiting for translation]',
 	
 	// Links to files for music players
 	'ACP_RADIO_MUSIC_PLAYERS'	=> 'Links For Music Players',

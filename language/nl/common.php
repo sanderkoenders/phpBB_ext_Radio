@@ -21,6 +21,7 @@ $lang = array_merge($lang, array(
 	'RADIO_NOT_AVAILABLE' 		=> 'Niet beschikbaar',
 	
 	// ACP languages variables
+	'ACP_RADIO_TYPE'			=> 'Radio type',
 	'ACP_RADIO_GENERAL'			=> 'Algemene Instellingen',
 	'ACP_RADIO_TITLE'			=> 'Radio Module',
 	'ACP_RADIO'					=> 'Instellingen',
@@ -28,7 +29,7 @@ $lang = array_merge($lang, array(
 	'ACP_RADIO_PORT'			=> 'Poort',
 	'ACP_RADIO_USER'			=> 'Gebruikersnaam',
 	'ACP_RADIO_PASSWD'			=> 'Wachtwoord',
-	'ACP_RADIO_SETTING_SAVED'	=> 'SHOUTcast Instellingen Opgeslagen',
+	'ACP_RADIO_SETTING_SAVED'	=> 'Radio Instellingen Opgeslagen',
 	
 	// Links to files for music players
 	'ACP_RADIO_MUSIC_PLAYERS'	=> 'Links Voor Muziek Spelers',
