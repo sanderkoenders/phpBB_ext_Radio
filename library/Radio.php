@@ -16,6 +16,9 @@ abstract class Radio
     /* @var \phpbb\config\config */
     protected $config;
 
+    /** Base data for the json api */
+    protected $baseData;
+
     /**
      * Radio constructor.
      *
@@ -28,6 +31,26 @@ abstract class Radio
         $this->cache = $cache;
         $this->config = $config;
         $this->user = $user;
+
+        $this->baseData = array(
+            'currentListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'peakListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'maxListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'reportedListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'avarageTime' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'serverGenre' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'serverUrl' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'serverTitle' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'songTitle' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'nextTitle' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'songUrl' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'irc' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'icq' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'aim' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'streamStatus' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'bitrate' => $this->user->lang('RADIO_NOT_AVAILABLE'),
+            'content' => $this->user->lang('RADIO_NOT_AVAILABLE')
+        );
     }
 
     /**

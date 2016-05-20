@@ -87,16 +87,6 @@ class ShoutcastAdapter extends Radio
             'content' => (string)(!empty($xml->CONTENT) ? $xml->CONTENT : $this->user->lang('RADIO_NOT_AVAILABLE'))
         );
 
-        if ($xml->STREAMSTATUS == 1) {
-            // store song history in array
-            foreach ($xml->SONGHISTORY->SONG as $song) {
-                $data['songHistory'][] = array(
-                    'playeDat' => (string)(!empty($song->PLAYEDAT) ? $song->PLAYEDAT : $this->user->lang('RADIO_NOT_AVAILABLE')),
-                    'title' => (string)(!empty($song->TITLE) ? $song->TITLE : $this->user->lang('RADIO_NOT_AVAILABLE')),
-                );
-            }
-        }
-    
-        return $data;
+        return array_merge($data, $this->baseData);
     }
 }

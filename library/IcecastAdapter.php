@@ -61,23 +61,13 @@ class IcecastAdapter extends Radio
         $data = array(
             'currentListeners' => (string)(!empty($json->listeners) ? $json->listeners : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'peakListeners' => (string)(!empty($json->listener_peak) ? $json->listener_peak : $this->user->lang('RADIO_NOT_AVAILABLE')),
-            'maxListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'reportedListeners' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'avarageTime' => $this->user->lang('RADIO_NOT_AVAILABLE'),
             'serverGenre' => (string)(!empty($json->genre) ? $json->genre : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'serverUrl' => (string)(!empty($json->listenurl) ? $json->listenurl : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'serverTitle' => (string)(!empty($json->server_name) ? $json->server_name : $this->user->lang('RADIO_NOT_AVAILABLE')),
             'songTitle' => (string)(!empty($json->title) ? $json->title : $this->user->lang('RADIO_NOT_AVAILABLE')),
-            'nextTitle' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'songUrl' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'irc' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'icq' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'aim' => $this->user->lang('RADIO_NOT_AVAILABLE'),
-            'streamStatus' => $this->user->lang('RADIO_NOT_AVAILABLE'),
             'bitrate' => (string)(!empty($json->bitrate) ? $json->bitrate : $this->user->lang('RADIO_NOT_AVAILABLE')),
-            'content' => $this->user->lang('RADIO_NOT_AVAILABLE')
         );
 
-        return $data;
+        return array_merge($this->baseData, $data);
     }
 }
