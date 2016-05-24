@@ -8,7 +8,8 @@ class IcecastAdapter extends Radio
     {
         $radioInfo = $this->getInfoFromCache();
 
-        if ($radioInfo === false) {
+        if ($radioInfo === false)
+        {
             $curl = curl_exec($this->initCurl($this->config));
 
             if ($curl)

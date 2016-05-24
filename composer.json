@@ -7,11 +7,11 @@
 	"time": "2016-05-20",
 	"license": "GPL-2.0",
 	"authors": [{
-			"name": "Sander Koenders",
-			"email": "sanderkoenders@gmail.com",
-			"homepage": "https://www.sanderkoenders.nl",
-			"role": "Lead Developer"
-		}],
+		"name": "Sander Koenders",
+		"email": "sanderkoenders@gmail.com",
+		"homepage": "https://www.sanderkoenders.nl",
+		"role": "Lead Developer"
+	}],
 	"require": {
 		"php": ">=5.3.3"
 	},
@@ -21,7 +21,7 @@
 	"extra": {
 		"display-name": "Radio extension",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.2@dev"
 		}
 	}
 }

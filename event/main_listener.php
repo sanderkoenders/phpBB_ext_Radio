@@ -13,6 +13,9 @@ namespace archcry\radio\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use \phpbb\config\config;
+use \phpbb\controller\helper;
+use \phpbb\template\template;
 
 /**
 * Event listener
@@ -27,25 +30,27 @@ class main_listener implements EventSubscriberInterface
 		);
 	}
 
+	/* @var \phpbb\config\config */
+	protected $config;
+
 	/* @var \phpbb\controller\helper */
 	protected $helper;
 
 	/* @var \phpbb\template\template */
 	protected $template;
 	
-	/* phpBB rootpath */
+	/* @var root_path */
 	protected $root_path;
-	
-	/* phpBB config */
-	protected $config;
 
 	/**
-	* Constructor
-	*
-	* @param \phpbb\controller\helper	$helper		Controller helper object
-	* @param \phpbb\template			$template	Template object
-	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\template\template $template, $root_path)
+	 * Constructor
+	 *
+	 * @param config $config
+	 * @param helper $helper Controller helper object
+	 * @param template $template Template object
+	 * @param $root_path
+	 */
+	public function __construct(config $config, helper $helper, template $template, $root_path)
 	{
 		$this->helper = $helper;
 		$this->template = $template;
