@@ -39,7 +39,7 @@ $lang = array_merge($lang, array(
 	'ACP_RADIO_SETTING_SAVED'	=> 'Ajustes de SHOUTcast guardados',
 	
 	// Links to files for music players
-	'ACP_RADIO_MUSIC_PLAYERS'	=> 'Links For Music Players',
+	'ACP_RADIO_MUSIC_PLAYERS'	=> 'Enlaces para los reproductores de música',
 	'ACP_RADIO_WINAMP_URL'		=> 'Enlace a Winamp',
 	'ACP_RADIO_WMP_URL'			=> 'Enlace a Windows Media Player',
 	'ACP_RADIO_REAL_URL'		=> 'Enlace a RealPlayer',
